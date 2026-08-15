@@ -57,7 +57,8 @@ Current pins are core/s3 0.3.2, providers 0.3.0–0.3.1.
   releases for parity. New deps: `genblaze-replicate`, `genblaze-runway`,
   `genblaze-luma`, `genblaze-elevenlabs`, `genblaze-lmnt`, `genblaze-hume`.
   (Skip `genblaze-assemblyai` — no fit.)
-- Re-pin `requirements.txt` via `uv pip compile`.
+- Re-pin `requirements.txt` via
+  `uv export --format requirements-txt --no-hashes --output-file requirements.txt`.
 - New config keys: `ELEVENLABS_API_KEY`, `LMNT_API_KEY`, `HUME_API_KEY`,
   `LUMAAI_API_KEY`, `REPLICATE_API_TOKEN`, Runway key (confirm
   `RUNWAYML_API_SECRET`). Add to `config.py` + `.env.example` + the

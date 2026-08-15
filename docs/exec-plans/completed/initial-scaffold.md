@@ -101,7 +101,7 @@ genblaze-gen-media-multi-provider-sample/
 │   │   ├── test_pipelines_smoke.py        (constructs each Pipeline factory; no real API calls)
 │   │   └── test_composer.py               (mocks backend.get/put; verifies ffmpeg arg construction + scene grouping)
 │   ├── pyproject.toml
-│   ├── requirements.txt                   (uv pip compile lockfile)
+│   ├── requirements.txt                   (uv export lockfile)
 │   └── .env.example
 ├── docs/
 │   ├── app-workflows.md                   (one-prompt-to-MP4 sequence diagram, Stage A/B1/B2/C handoffs)
@@ -166,7 +166,7 @@ dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "ruff>=0.6"]
 ```
 
 `requirements.txt` committed as lockfile:
-`uv pip compile pyproject.toml -o requirements.txt`.
+`uv export --format requirements-txt --no-hashes --output-file requirements.txt`.
 
 **No `ffmpeg-python` dependency.** `composer.py` shells out to the
 system `ffmpeg` binary via `subprocess.run(...)` — simpler, fewer
