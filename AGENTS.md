@@ -55,8 +55,9 @@ provider-package imports are allowed only in `provider_catalog.py` and
 When the next provider lands on PyPI as `genblaze-<vendor>`:
 
 1. Add the dependency to `services/api/pyproject.toml` and re-pin
-   `requirements.txt` with `uv pip compile`. (New adapters require
-   `genblaze-core>=0.3.4`.)
+   `requirements.txt` with
+   `uv export --format requirements-txt --no-hashes --output-file requirements.txt`.
+   (New adapters require `genblaze-core>=0.3.4`.)
 2. Import the provider class in `app/repo/provider_catalog.py` (no other file)
    and add ONE `CatalogEntry` to the relevant slot in `CATALOG`: the `make()`
    factory (with the right key kwarg — `api_key`/`api_token`/`api_secret`/
